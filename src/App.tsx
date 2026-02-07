@@ -1,32 +1,43 @@
-import { APITester } from "./APITester";
-import "./index.css";
-
-import logo from "./logo.svg";
-import reactLogo from "./react.svg";
+import { useState } from 'preact/hooks'
+import preactLogo from './assets/preact.svg'
+import viteLogo from '/vite.svg'
+import './app.css'
 
 export function App() {
+  const [count, setCount] = useState(0)
+
   return (
-    <div className="max-w-7xl mx-auto p-8 text-center relative z-10">
-      <div className="flex justify-center items-center gap-8 mb-8">
-        <img
-          src={logo}
-          alt="Bun Logo"
-          className="h-24 p-6 transition-all duration-300 hover:drop-shadow-[0_0_2em_#646cffaa] scale-120"
-        />
-        <img
-          src={reactLogo}
-          alt="React Logo"
-          className="h-24 p-6 transition-all duration-300 hover:drop-shadow-[0_0_2em_#61dafbaa] animate-[spin_20s_linear_infinite]"
-        />
+    <>
+      <div>
+        <a href="https://vite.dev" target="_blank">
+          <img src={viteLogo} class="logo" alt="Vite logo" />
+        </a>
+        <a href="https://preactjs.com" target="_blank">
+          <img src={preactLogo} class="logo preact" alt="Preact logo" />
+        </a>
       </div>
-
-      <h1 className="text-5xl font-bold my-4 leading-tight">Bun + React</h1>
+      <h1>Vite + Preact</h1>
+      <div class="card">
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
+        <p>
+          Edit <code>src/app.tsx</code> and save to test HMR
+        </p>
+      </div>
       <p>
-        Edit <code className="bg-[#1a1a1a] px-2 py-1 rounded font-mono">src/App.tsx</code> and save to test HMR
+        Check out{' '}
+        <a
+          href="https://preactjs.com/guide/v10/getting-started#create-a-vite-powered-preact-app"
+          target="_blank"
+        >
+          create-preact
+        </a>
+        , the official Preact + Vite starter
       </p>
-      <APITester />
-    </div>
-  );
+      <p class="read-the-docs">
+        Click on the Vite and Preact logos to learn more
+      </p>
+    </>
+  )
 }
-
-export default App;
